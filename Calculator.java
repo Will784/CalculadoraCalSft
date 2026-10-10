@@ -69,7 +69,7 @@ public class Calculator {
     }
 
     static void runTests() {
-        System.out.println("=== PRUEBAS UNITARIAS ===");
+        System.out.println("PRUEBAS UNITARIAS");
 
         check("OPARIT001", "7 y 3", "10", String.valueOf(add(7, 3)));
         check("OPARIT002", "25 y 5", "5.0", divide(25, 5));
@@ -115,7 +115,7 @@ public class Calculator {
 
     static void runCalculator() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("=== CALCULADORA ===");
+        System.out.println("CALCULADORA");
         int a = readInteger(scanner, "Ingrese el primer numero entero (a): ");
         int b = readInteger(scanner, "Ingrese el segundo numero entero (b): ");
 
