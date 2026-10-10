@@ -24,35 +24,34 @@ Requiere Java 11 o superior.
 
 ## Diagrama de casos de uso
 
-```plantuml
-@startuml
-left to right direction
-actor "Usuario" as U
+```mermaid
+flowchart LR
+    U["Usuario"]
 
-rectangle "Sistema: Calculator" {
-    usecase "Ingresar dos enteros" as UC1
-    usecase "Sumar" as UC2
-    usecase "Restar" as UC3
-    usecase "Multiplicar" as UC4
-    usecase "Dividir" as UC5
-    usecase "Elevar a una potencia (nuevo)" as UC6
-    usecase "Mostrar resultados en consola" as UC7
-    usecase "Validar entero" as UC8
-    usecase "Manejar divisor igual a cero" as UC9
-    usecase "Manejar exponente negativo" as UC10
-}
+    subgraph SYS["Sistema: Calculator"]
+        UC1(["Ingresar dos enteros"])
+        UC2(["Sumar"])
+        UC3(["Restar"])
+        UC4(["Multiplicar"])
+        UC5(["Dividir"])
+        UC6(["Elevar a una potencia (nuevo)"])
+        UC7(["Mostrar resultados en consola"])
+        UC8(["Validar entero"])
+        UC9(["Manejar divisor igual a cero"])
+        UC10(["Manejar exponente negativo"])
 
-U --> UC1
-U --> UC2
-U --> UC3
-U --> UC4
-U --> UC5
-U --> UC6
-U --> UC7
-UC1 .> UC8 : <<include>>
-UC9 .> UC5 : <<extend>>
-UC10 .> UC6 : <<extend>>
-@enduml
+        UC1 -. "<<include>>" .-> UC8
+        UC9 -. "<<extend>>" .-> UC5
+        UC10 -. "<<extend>>" .-> UC6
+    end
+
+    U --> UC1
+    U --> UC2
+    U --> UC3
+    U --> UC4
+    U --> UC5
+    U --> UC6
+    U --> UC7
 ```
 
 **Actor:** Usuario (persona que ejecuta la aplicación en consola). El cliente es quien aprueba los requisitos, pero no interactúa con el sistema.
